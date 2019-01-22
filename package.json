@@ -1,5 +1,5 @@
 {
-  "name": "Old_Reddit",
+  "name": "Old_Reddit_Scrapper",
   "version": "1.0.0",
   "description": "The Reddit Scrapper",
   "main": "index.js",

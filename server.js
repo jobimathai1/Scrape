@@ -4,8 +4,9 @@ var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
-var PORT = process.env.PORT || 3000;
+
 var app = express();
+app.set('port', (process.env.PORT || 3000));
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -18,7 +19,7 @@ app.use(require('./controllers'));
 
 mongoose.Promise = Promise;
 
-var dbURI = "mongodb://heroku_xklcvtbk:CARmex0711!@ds163354.mlab.com:63354/heroku_xklcvtbk"|| "mongodb://localhost:27017/news";
+var dbURI = process.env.MONGODB_URI || "mongodb://localhost:27017/news";
 
 mongoose.connect(dbURI, { useNewUrlParser: true });
 mongoose.set('useCreateIndex', true);
@@ -27,8 +28,8 @@ var db = mongoose.connection;
 
 db.on("open", function () {
     console.log("Mongoose connection successful.");
-    app.listen(PORT, function () {
-        console.log("App running on port:  " + PORT);
+    app.listen(app.get('port'), function () {
+        console.log('App listening on PORT ', app.get('port'));
     });
 });
 
