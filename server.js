@@ -18,7 +18,7 @@ app.use(require('./controllers'));
 
 mongoose.Promise = Promise;
 
-var dbURI = process.env.MONGODB_URI || "mongodb://localhost:27017/news";
+var dbURI = "mongodb://heroku_xklcvtbk:CARmex0711@ds163354.mlab.com:63354/heroku_xklcvtbk"|| "mongodb://localhost:27017/news";
 
 mongoose.connect(dbURI, { useNewUrlParser: true });
 mongoose.set('useCreateIndex', true);
