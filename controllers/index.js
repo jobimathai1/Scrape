@@ -19,8 +19,8 @@ router.get('/', function (req, res) {
             } else {
                 console.log(articles);
                 let hbsObj = {
-                    title: 'Scraping Reddit',
-                    subtitle: 'The Reddit Scrapper',
+                    title: 'Scraping echoJS',
+                    subtitle: 'The echoJS Scrapper',
                     articles: articles
                 };
                 res.render('index', hbsObj);

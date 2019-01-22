@@ -1,13 +1,13 @@
 'use strict';
 
 var express = require('express');
-var router = express.Router();
+var app = express();
 
-    router.get('/', function(req, res) {
+    app.get('/', function(req, res) {
         res.status(200).send('<a href=\'/api/articles/\'>articles</a><br><a href=\'/api/notes/\'>notes</a>');
     });
 
-router.use('/articles', require('./articles'));
-router.use('/notes', require('./notes'));
+app.use('/articles', require('./articles'));
+app.use('/notes', require('./notes'));
 
-module.exports = router;
+module.exports = app;

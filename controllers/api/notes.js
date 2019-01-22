@@ -1,14 +1,12 @@
 'use strict';
 
 var express = require('express');
-var router = express.Router();
-var request = require('request');
-var cherrio = require('cheerio');
+var app = express();
 var Article = require('../../models/article');
 var Note = require('../../models/note.js');
 
 // get all notes from database
-router.get('/', function(req, res) {
+app.get('/', function(req, res) {
     Note
         .find({})
         .exec(function(err, notes) {
@@ -22,7 +20,7 @@ router.get('/', function(req, res) {
 });
 
 // Add a note to save article
-router.post('/:id', function(req, res) {
+app.post('/:id', function(req, res) {
     let newNote = new Note(req.body);
     newNote.save(function(err, doc) {
         if (err) {
@@ -45,4 +43,4 @@ router.post('/:id', function(req, res) {
     });
 });
 
-module.exports = router;
+module.exports = app;
