@@ -43,8 +43,8 @@ router.get('/saved', function (req, res) {
             } else {
                 console.log(articles);
                 var hbsObj = {
-                    title: 'Scraping Reddit',
-                    subtitle: 'The Reddit Scrapper',
+                    title: 'Posts from Reddit',
+                    subtitle: 'The Old Reddit News',
                     articles: articles
                 };
                 res.render('saved', hbsObj);
